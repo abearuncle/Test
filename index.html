@@ -18,7 +18,7 @@
       <div class="main" id="unityContainer" style="z-index: 2"></div>
       <div class="footer">
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">是否開啟全螢幕</div>
+        <div class="title">全螢幕模式</div>
       </div>
     </a-scene>
 
@@ -33,16 +33,32 @@
       }
    
       recaptureInputAndFocus();
-
-     
     </script>
-    <!-- <div class="webgl-content">
-      <div id="unityContainer" style="z-index: 2"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">The NURTURING LAB</div>
-      </div>
-    </div> -->
+     
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDaJYuppYRvVa0QV8D2qJ7chGn_UiHz8jA",
+        authDomain: "go-running-water-elves.firebaseapp.com",
+        projectId: "go-running-water-elves",
+        storageBucket: "go-running-water-elves.appspot.com",
+        messagingSenderId: "429100463832",
+        appId: "1:429100463832:web:777d6842ae6a8bbf11c9ad",
+        measurementId: "G-JR6LTEXEHZ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
