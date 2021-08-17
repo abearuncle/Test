@@ -1,18 +1,18 @@
 
 .container {
       z-index: 2;
-      width: 85%;
+      width: 100%;
       position:absolute;
-      left: 50%; top: 50%;
-      -webkit-transform: translate(-50%, -50%); 
-      transform: translate(-50%, -50%);
+      left: 0%; top: 0%; right: 0%; bottom: 0%;
+      /* -webkit-transform: translate(-50%, -50%); 
+      transform: translate(-50%, -50%); */
 }
 .main {
       position:relative;
       width: 100%;
 }
 
-.header {
+/* .header {
       margin-top: 5px;
       position:relative;
       height: 50px;
@@ -21,7 +21,7 @@
 .header .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;}
 .header .webgl-logo {background-image: url('webgl-logo.png'); width: 204px; float: left;}
 .header .title {margin-right: 10px; float: right;}
-.header .fullscreen {background-image: url('fullscreen.png'); width: 38px; float: right;}
+.header .fullscreen {background-image: url('fullscreen.png'); width: 38px; float: right;} */
 
 /* main */
 
