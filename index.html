@@ -33,6 +33,19 @@
         <div class="main" id="unityContainer" ></div>
       </div>
     </a-scene>
+
+    <script>
+      var recaptureInputAndFocus = function() {
+        var canvas = document.getElementById("#canvas");
+        if(canvas) {
+          canvas.setAttribute("tabindex", "1");
+          canvas.focus(); 
+        } else
+          setTimeout(recaptureInputAndFocus, 100);
+      }
+   
+      recaptureInputAndFocus();
+    </script>
      
      <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
