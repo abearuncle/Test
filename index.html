@@ -12,14 +12,14 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var DEBUG = false;
-      if(!DEBUG){
-        if(!window.console) window.console = {};
-          var methods = ["log", "debug", "warn", "info"];
-        for(var i=0;i<methods.length;i++){
-          console[methods] = function(){};
-        }
-      }
+      // var DEBUG = false;
+      // if(!DEBUG){
+      //   if(!window.console) window.console = {};
+      //     var methods = ["log", "debug", "warn", "info"];
+      //   for(var i=0;i<methods.length;i++){
+      //     console[methods] = function(){};
+      //   }
+      // }
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WaterElves.json", {onProgress: UnityProgress});
     </script>
   </head>
@@ -35,17 +35,16 @@
     </a-scene>
 
     <script>
-      var recaptureInputAndFocus = function() {
-        var canvas = document.getElementById("#canvas");
-        if(canvas) {
-          canvas.setAttribute("tabindex", "1");
-          canvas.focus(); 
-        } else
-          setTimeout(recaptureInputAndFocus, 100);
+      function FixInputOnSubmit() {
+        document.getElementById("fixInput").blur();
+        event.preventDefault();
       }
-   
-      recaptureInputAndFocus();
     </script>
+    <div>
+      <form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+        <input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
+      </form>
+    </div>
      
      <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
