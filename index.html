@@ -3,23 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Gallery</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="viewport-fit=cover, user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <title>奔跑吧!水精靈</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/NewGallery.json", {onProgress: UnityProgress});
+      // var DEBUG = false;
+      // if(!DEBUG){
+      //   if(!window.console) window.console = {};
+      //     var methods = ["log", "debug", "warn", "info"];
+      //   for(var i=0;i<methods.length;i++){
+      //     console[methods] = function(){};
+      //   }
+      // }
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WaterElves.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Gallery</div>
+    
+    <a-scene embedded arjs vr-mode-ui="enabled: false" copycanvas>
+      <div class="container">
+        <!-- <div class="header">
+          <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        </div> -->
+        <div class="main" id="unityContainer" ></div>
       </div>
-    </div>
+    </a-scene>
+
+    <!-- <script>
+      function FixInputOnSubmit() {
+        document.getElementById("fixInput").blur();
+        event.preventDefault();
+      }
+    </script>
+    <div>
+      <form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+        <input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
+      </form>
+    </div> -->
+     
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDaJYuppYRvVa0QV8D2qJ7chGn_UiHz8jA",
+        authDomain: "go-running-water-elves.firebaseapp.com",
+        projectId: "go-running-water-elves",
+        storageBucket: "go-running-water-elves.appspot.com",
+        messagingSenderId: "429100463832",
+        appId: "1:429100463832:web:777d6842ae6a8bbf11c9ad",
+        measurementId: "G-JR6LTEXEHZ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>

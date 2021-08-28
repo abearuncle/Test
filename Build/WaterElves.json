@@ -1,0 +1,16 @@
+{
+"companyName": "abearuncle",
+"productName": "Go running-Water Elves",
+"productVersion": "0.1",
+"dataUrl": "WaterElves.data.unityweb",
+"wasmCodeUrl": "WaterElves.wasm.code.unityweb",
+"wasmFrameworkUrl": "WaterElves.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#000000",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.4f1"
+}
