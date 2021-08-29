@@ -32,6 +32,21 @@
       <div class="main" id="unityContainer" ></div>
     </div>
 
+    <style>
+      #unityContainer:-webkit-full-screen #unityContainer {
+        display: none;
+      }
+      #gunityContainer:-moz-full-screen #unityContainer {
+        display: none;
+      }
+      #unityContainer:-ms-fullscreen #unityContainer {
+        display: none;
+      }
+      #unityContainer:fullscreen #unityContainer {
+        display: none;
+      }
+    </style>
+
     <!-- <script>
       function FixInputOnSubmit() {
         document.getElementById("fixInput").blur();
