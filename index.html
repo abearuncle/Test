@@ -20,7 +20,7 @@
       //     console[methods] = function(){};
       //   }
       // }
-      var unityInstance = UnityLoader.instantiate("unityContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WaterElves.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
@@ -31,6 +31,7 @@
       </div> -->
       <div class="main" id="unityContainer" ></div>
     </div>
+    
 
     <!-- <script>
       function FixInputOnSubmit() {
