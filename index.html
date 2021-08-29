@@ -20,19 +20,17 @@
       //     console[methods] = function(){};
       //   }
       // }
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WaterElves.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
     
-    <a-scene embedded arjs vr-mode-ui="enabled: false" copycanvas>
-      <div class="container" id="container" >
-        <!-- <div class="header">
-          <div class="fullscreen" onclick="document.makeFullscreen('unityContainer')"></div>
-        </div> -->
-        <div class="main" id="unityContainer" ></div>
-      </div>
-    </a-scene>
+    <div class="container" id="container" >
+      <!-- <div class="header">
+        <div class="fullscreen" onclick="document.makeFullscreen('unityContainer')"></div>
+      </div> -->
+      <div class="main" id="unityContainer" ></div>
+    </div>
 
     <!-- <script>
       function FixInputOnSubmit() {
