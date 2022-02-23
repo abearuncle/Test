@@ -1,75 +1,104 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>奔跑吧!水精靈</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="manifest" href="TemplateData/manifest.json">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      // var DEBUG = false;
-      // if(!DEBUG){
-      //   if(!window.console) window.console = {};
-      //     var methods = ["log", "debug", "warn", "info"];
-      //   for(var i=0;i<methods.length;i++){
-      //     console[methods] = function(){};
-      //   }
-      // }
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WaterElves.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
-    
-    <div class="container" id="container" >
-      <!-- <div class="header">
-        <div class="fullscreen" onclick="document.makeFullscreen('unityContainer')"></div>
-      </div> -->
-      <div class="main" id="unityContainer" ></div>
-    </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1f00d0beadf87bad7d275c174616e048f8b573fc/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+    <title>000</title>
+
+    <!-- style for the loader -->
+<style>
+    .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .arjs-loader div {
+      text-align: center;
+      font-size: 1.25em;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+      </div>
+
+    <a-scene arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+    embedded
+    renderer="logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false"
+    gesture-detector
+    id="scene">
+
+    <a-nft
+    type="nft"
+    url="./image/marker/33"
+    smooth="true"
+    smoothCount="10"
+    smoothTolerance=".01"
+    smoothThreshold="5"
+    raycaster="objects: .clickable"
+    emitevents="true"
+    cursor="fuse: false; rayOrigin: mouse;"
+  >
+    <a-entity
+      gltf-model="./model/gameboy/scene.gltf"
+      scale="1 1 1"
+      position="200 50 0"
+      class="clickable"
+      gesture-handler
+    >
+    </a-entity>
+  </a-nft>
+
+        <!-- <a-marker
+            preset="hiro"
+            raycaster="objects: .clickable"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="markerA">
+
+            <a-entity
+            id="bowser-model"
+            gltf-model="./model/gameboy/scene.gltf"
+            position="0 0 0"
+            scale="0.01 0.01 0.01"
+            class="clickable"
+            gesture-handler
+            >
+            </a-entity>
+        </a-marker> -->
 
 
-    <!-- <script>
-      function FixInputOnSubmit() {
-        document.getElementById("fixInput").blur();
-        event.preventDefault();
-      }
-    </script>
-    <div>
-      <form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
-        <input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
-      </form>
-    </div> -->
-     
-     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+        <!-- <a-marker type='pattern' url='./marker/pattern-aaa.patt'>
+            <a-box position='0 0.5 0' material='color: red;'></a-box>
+        </a-marker>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+        <a-marker preset='hiro'>
+        <a-box position='0 0.5 0' material='color: green;'></a-box>
+        </a-marker>
 
-    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+        <a-marker type='barcode' value='5'>
+        <a-box position='0 0.5 0' material='color: blue;'></a-box>
+        </a-marker> -->
+            <!-- define a simple camera -->
+            <a-entity camera></a-entity>
+        
+    </a-scene>
 
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyDaJYuppYRvVa0QV8D2qJ7chGn_UiHz8jA",
-        authDomain: "go-running-water-elves.firebaseapp.com",
-        projectId: "go-running-water-elves",
-        storageBucket: "go-running-water-elves.appspot.com",
-        messagingSenderId: "429100463832",
-        appId: "1:429100463832:web:777d6842ae6a8bbf11c9ad",
-        measurementId: "G-JR6LTEXEHZ"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
-  </body>
+</body>
 </html>
